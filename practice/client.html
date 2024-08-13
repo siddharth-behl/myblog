@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button id="sub">submit</button>
+  <input type="file" name="background_image" id="background_image">
+  <script>
+    const formData = new FormData();
+    formData.append('name', 'sidd');
+    
+    formData.append('username', 'JohnDoe');
+
+    sub.onclick = () => {
+      formData.append('background_image',background_image.files[0] );
+      fetch('/practice', {
+          method: 'POST',
+          body: formData
+        })
+        .then(response => location.href='/done')
+       
+    }
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%-include("./Partials/head.ejs") %>
+  <title>Myblogstyle</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Teko:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="<%=locals.url%>/homepage.css">
+</head>
+
+<body>
+  <header>
+    <%-include("./Partials/headers.ejs")  %>
+  </header>
+  <div class="box">
+    <% if (locals.alluser) { %>
+
+    <% locals.alluser.forEach(element => { %>
+
+
+    <div class="card" style="width: 18rem;">
+      <img src="<%= element.background_image.slice(6)  %>" class="card-img-top" alt="<%= element.blog_type %>">
+      <div class="card-body">
+        <h5 class="card-title"><%=element.title%></h5>
+        <div class="clickables">
+          <a href="<%=element.shortid%>" class="btn btn-primary">Read Blog</a>
+          <div class="like">
+            <p class="like_text">Like</p>
+            <div class="like_image"></div>
+            <div class="celeb"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% }) %>
+    <% } %>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script>
+    const likeImage = Array.from(document.getElementsByClassName('like_image'))
+    const like = Array.from(document.getElementsByClassName('like'))
+    const like_text = Array.from(document.getElementsByClassName('like_text'))
+    const celeb = Array.from(document.getElementsByClassName('celeb'))
+
+    for (let i = 0; i < like.length; i++) {
+      like[i].setAttribute('data-liked', 'false'); // Initialize data attribute
+
+      like[i].addEventListener('click', () => {
+        const isLiked = like[i].getAttribute('data-liked') === 'true';
+
+        if (!isLiked) {
+          likeImage[i].style.backgroundImage = "url('<%= locals.url %>/Images/heart%20filled.png')";
+          setTimeout(() => {
+            celeb[i].classList.toggle('party');
+          }, 2000);
+          celeb[i].classList.toggle('party');
+          gsap.to('.like_image', {
+            duration: 0.1,
+            scale: 2,
+            repeat: 1,
+            yoyo: true,
+            ease: "elastic.out(1,0.3)",
+          });
+          like[i].style.backgroundColor = 'rgb(255, 47, 0)';
+          like[i].style.color = 'white';
+          like_text[i].innerHTML = 'Liked';
+          like[i].setAttribute('data-liked', 'true');
+        } else {
+          likeImage[i].style.backgroundImage = "url('<%= locals.url %>/Images/heart.png')";
+          like[i].style.backgroundColor = 'white';
+          like[i].style.color = 'black';
+          like_text[i].innerHTML = 'Like';
+          like[i].setAttribute('data-liked', 'false');
+        }
+      });
+    }
+  </script>
+  <%- include('./Partials/script.ejs') %>
+</body>
+
+</html>

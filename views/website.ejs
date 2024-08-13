@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%-include("./Partials/head.ejs")%>
+
+  <title><%=locals.data?.title %></title>
+
+  <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+  <link rel="stylesheet" href="/preview_website.css">
+</head>
+
+
+<body>
+
+  <div class="user_details">
+    <p><%=locals.data?.createdBy.fullname%></p>
+    <img src="<%=locals.url%>/<%=locals.data?.createdBy.profile_image.slice(6)%>" alt="<%=locals.data?.createdBy.fullname%> " class="pro_img">
+  </div>
+  <%-include("./Partials/headers.ejs")%>
+  <div id="mainimg">
+
+    <img src="<%=locals.url%>/<%=locals.data?.background_image.slice(6) %>" alt="<%=locals.data.blog_type%>">
+  </div>
+  <div id="title">
+    <%=locals.data?.title%>
+
+  </div>
+  <div id="box">
+    <%-include(`./content.ejs`) %>
+
+  </div>
+
+  <div class="user_details comments">
+    <p><%=locals.data?.createdBy.fullname%></p>
+    <img src="<%=locals.url%>/<%=locals.data?.createdBy.profile_image.slice(6)%>" alt="<%=locals.data?.createdBy.fullname%> " class="pro_img">
+    <p class="comment">Comments (<%=locals.comments_data?locals.comments_data?.length:0%>)</p>
+  </div>
+
+  <%if(locals.user_data){%>
+
+  <form action="/comment/<%=locals.data?._id%>" method="POST">
+    <input type="text" name="comment" placeholder="Write Your comment !">
+    <input type="submit">
+
+  </form>
+  <%}%>
+  <% if (locals.comments_data) { %>
+  <div class="box_holder">
+    <% comments_data.forEach(comment => { %>
+
+
+    <div class="comment_box">
+      <div class="sender_details">
+        <img src="<%=locals.url%>/<%=comment.createdBy?.profile_image?.slice(6) %>" alt="<%=comment.fullname %>">
+        <p><%=comment.createdBy.fullname%></p>
+      </div>
+      <div class="user_ka_comment">
+        <%= comment.comments %>
+      </div>
+    </div>
+
+    <% }) %>
+  </div>
+  <% } %>
+
+  <%-include("./Partials/script.ejs")%>

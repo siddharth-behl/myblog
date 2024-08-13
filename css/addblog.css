@@ -1,0 +1,208 @@
+@keyframes lineshort {
+    from {
+
+        width: 18vw;
+    }
+
+    to {
+        width: 0;
+    }
+}
+
+.message {
+    font-size: 18px;
+    padding-top: 6px;
+    text-align: center;
+    border-radius: 7px;
+    position: fixed;
+    bottom: 11px;
+    right: 24px;
+    height: 6vh;
+    width: 18vw;
+    box-shadow: 0px 0px 11px -1px black;
+    background-color: white;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
+
+}
+
+.linecont {
+    position: absolute;
+    z-index: 100;
+}
+
+.line {
+
+    z-index: 1000;
+    position: fixed;
+    bottom: 11px;
+    right: 24px;
+    height: 0.5vh;
+    width: 23vw;
+    background-color: rgb(0, 0, 255);
+    animation: lineshort 2s linear 1 forwards;
+
+}
+
+
+form {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    position: relative;
+
+}
+
+#editor-container {
+    position: absolute;
+    bottom: 1vh;
+    height: 30vh;
+    left: 0vw;
+    width: 100vw;
+    background-color: black;
+    color: white;
+
+}
+
+textarea::-webkit-input-placeholder {
+    color: white;
+    background-color: black;
+}
+
+label[for="content"] {
+
+    font-size: 4vh;
+    position: absolute;
+    bottom: 36vh;
+    left: 50%;
+    transform: translateX(-50%);
+    color: black;
+    z-index: 1;
+
+
+
+}
+
+
+input[type="submit"] {
+    top: 12vh;
+    position: relative;
+    background-color: rgb(36, 98, 255);
+    border-radius: 10px;
+    border: none;
+    align-self: center;
+    color: white;
+    width: 600px;
+    height: 60px;
+    transition: all 0.4s ease-in-out;
+
+
+}
+
+input[type="submit"]:hover {
+    background-color: rgb(92, 132, 255);
+}
+
+input[type="file"] {
+    width: 10vw;
+    height: 8vh;
+    opacity: 0;
+
+}
+
+.filebutton {
+    pointer-events: none;
+    border-radius: 10px;
+    background-color: rgb(36, 98, 255);
+    height: 44px;
+    width: 153px;
+    position: relative;
+    left: -10vw;
+    top: 0.5vw;
+    text-align: center;
+    /* padding-top: 1.5vh; */
+    transition: all 0.2s ease-in-out;
+    z-index: 10;
+    color: white;
+    padding-top: 10px;
+}
+
+
+
+
+.sep {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+
+
+#openPopup {
+    position: absolute;
+    height: 43px;
+    width: 113px;
+    background-color: rgb(59, 59, 255);
+    border: none;
+    color: white;
+    right: 1vw;
+    border-radius: 10px;
+    bottom: 32vh;
+
+}
+
+
+#blog_html {
+    display: none;
+}
+
+#cont {
+    width: 38vw;
+    height: 46vh;
+    position: absolute;
+    top: 38vh;
+    left: 351px;
+}
+
+.ql-toolbar.ql-snow {
+
+    width: 100vw;
+    height: 5.5vh;
+    position: fixed;
+    bottom: 44vh;
+
+
+}
+
+label {
+    padding: 3vh;
+}
+
+#cont img {
+    box-shadow: 4px 3px 4px 2px black;
+    border-radius: 10px;
+    left: 3vw;
+    top: -19vh;
+    display: inline;
+    position: relative;
+    max-width: 22%;
+}
+
+@media (max-width:992px) {
+    input[type="submit"] {
+        right: 11px;
+        top: 1vh;
+        position: relative;
+        background-color: rgb(36, 98, 255);
+        border-radius: 10px;
+        border: none;
+        align-self: center;
+        /* width: 100px; */
+        width: 97px;
+        height: 40px;
+        transition: all 0.4s ease-in-out;
+    }
+}

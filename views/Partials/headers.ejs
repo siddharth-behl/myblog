@@ -1,0 +1,68 @@
+<link rel="stylesheet" href="<%locals.url%>/headers.css">
+
+<% if (locals.user_data) { %>
+<style>
+  #navbarSupportedContent {
+    position: relative;
+    top: 10px;
+  }
+</style>
+<% } %>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+
+    <a class="navbar-brand" href="<%=locals.url%>">MyBlogStyle</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="<%=locals.url %>">Home</a>
+        </li>
+
+        <a href="/write_blog">
+          <li class="add">
+            Add Blog+
+
+          </li>
+        </a>
+
+        <% if (locals.user_data) { %>
+
+        <li class="nav-item dropdown dropdown_menu logout_buton">
+          <a class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <%= locals.user_data.fullname %>
+            <img src="<%=locals.url%>/<%=locals.user_data.profile_image.slice(6)%>" alt="<%= locals.user_data.fullname %>" class="side_chick">
+
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+
+          </ul>
+        </li>
+
+
+
+
+
+        <% } else{%>
+        <a href="/login">
+          <div class="signup_button">Sign Up</div>
+        </a>
+        <% } %>
+        <a href="/myblogs">
+          <div class="my_blogs">My Blogs</div>
+        </a>
+
+
+
+
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>

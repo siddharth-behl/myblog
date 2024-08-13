@@ -1,0 +1,23 @@
+#title {
+    margin: 3vw;
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: underline;
+    font-size: 5vw;
+
+  }
+
+  img {
+    width: 18vw;
+  height: auto;
+  position: absolute;
+  right: 117px;
+  z-index: 1000;
+  top: 11vh;
+  }
+
+  #box {
+
+    margin-top: 33vh;
+
+  }

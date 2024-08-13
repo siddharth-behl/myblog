@@ -1,0 +1,88 @@
+  a {
+      color: green;
+      text-decoration: none;
+  }
+
+  .add {
+      top: 2px;
+      position: relative;
+      padding-top: 5px;
+      text-align: center;
+      text-decoration: none;
+      color: green;
+      height: 42px;
+      width: 126px;
+      border: 2px solid green;
+      border-radius: 10px;
+      transition: all 0.2s ease-in-out;
+
+
+  }
+
+  .add:hover {
+      background-color: green;
+      color: white;
+  }
+
+  .dropdown_menu {
+      position: absolute;
+      right: 20vw;
+  }
+
+  .signup_button {
+      top: 5px;
+      right: -746px;
+      position: relative;
+      height: 30px;
+      width: 100px;
+      border: 2px solid green;
+      border-radius: 20px;
+      color: green;
+      text-align: center;
+      transition: all 0.2s ease-in-out;
+
+
+  }
+
+  @media (max-width:992px) {
+      .signup_button {
+          top: 5vh;
+          left: 73vw;
+      }
+  }
+
+  .my_blogs {
+      padding-top: 6px;
+      position: relative;
+      top: 2px;
+
+      height: 43px;
+      width: 126px;
+      border: 2px solid green;
+      border-radius: 6px;
+      color: green;
+      text-align: center;
+      transition: all 0.2s ease-in-out;
+
+  }
+
+  .signup_button:hover,
+  .my_blogs:hover {
+      color: white;
+      background-color: green;
+  }
+
+
+  .side_chick {
+      left: 3px;
+      top: -2px;
+      position: relative;
+      height: 42px;
+      width: 42px;
+      border-radius: 173px;
+  }
+
+  .logout_buton {
+      position: relative;
+      left: 44vw;
+  }

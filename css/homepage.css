@@ -1,0 +1,85 @@
+.playfair-display-lan {
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    width: 200px;
+    height: 250px
+}
+
+.like {
+    bottom: 36px;
+    left: 150px;
+    position: relative;
+    padding: 5px 0 0 30px;
+    text-align: left;
+    height: 36px;
+    width: 110px;
+    border: 3px dotted rgb(255, 51, 0);
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+    font-family: "Playfair Display", serif;
+    cursor: pointer;
+}
+
+.like_image {
+    content: " ";
+    height: 60%;
+    width: 60%;
+    background-image: url('/Images/heart.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 8px;
+    left: 78px;
+    transition: all 0.3s ease-in-out;
+}
+
+.like:hover {
+    background-color: rgb(255, 47, 0);
+    color: white;
+    font-family: "Playfair Display", serif;
+}
+
+.party {
+    position: absolute;
+    top: -25px;
+    left: 0px;
+    background-image: url(/Images/celeb.gif);
+    background-size: cover;
+    height: 69px;
+    width: 114px;
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 4vw;
+    flex-wrap: wrap;
+}
+
+.card {
+    height: 49vh;
+    border: 0.7px solid gray;
+    box-shadow: 0px 0px 27px 6px grey;
+    margin: 20px;
+}
+
+.clickables {
+    position: relative;
+    left: 0px;
+    bottom: -43px;
+}
+
+img {
+    height: 226px;
+}

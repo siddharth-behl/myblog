@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preview</title>
+  <link rel="stylesheet" href="<%=locals.url %>/preview_website.css">
+</head>
+
+<body>
+  <div id="mainimg">
+
+  </div>
+  <div id="title">
+
+  </div>
+  <div id="box">
+
+  </div>
+
+
+
+
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io();
+    socket.on('contentUpdate', (data) => {
+      box.innerHTML = data
+    })
+    socket.on('mainImage', (data) => {
+
+      img = document.createElement('img')
+      img.src = data
+      mainimg.innerHTML = ''
+      mainimg.append(img)
+
+
+
+    })
+    socket.on('title', (data) => {
+      title.innerHTML = data
+    })
+  </script>
+
+  <%if(locals.data){%>
+  <style>
+    .title,
+    .image_data,
+    .content {
+      display: none;
+    }
+  </style>
+  <div class="title"><%=locals.data.title%></div>
+  <div class="image_data"><%=locals.data.background_image%></div>
+  <div class="content"><%=locals.data.html_data%></div>
+  <script>
+    title.innerHTML = ''
+    title.append(document.getElementsByClassName('title')[0].innerHTML)
+    mainimg.innerHTML = ''
+    img = document.createElement("img")
+    img.src = document.getElementsByClassName('image_data')[0].innerHTML
+    mainimg.append(img)
+    box.innerHTML = ''
+    box.innerHTML = document.getElementsByClassName('content')[0].textContent.trim()
+  </script>
+
+  <%}%>
+
+
+
+
+
+</body>
+
+</html>

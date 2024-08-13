@@ -1,0 +1,340 @@
+@import url('eae');
+
+::selection {
+  background: #2D2F36;
+}
+
+::-webkit-selection {
+  background: #2D2F36;
+}
+
+::-moz-selection {
+  background: #2D2F36;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: white;
+  font-family: 'Inter UI', sans-serif;
+  margin: 0;
+  padding: 0px;
+}
+
+.page {
+  background: #e2e2e5;
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 40px);
+  position: absolute;
+  place-content: center;
+  width: calc(100% - 40px);
+}
+
+@media (max-width: 767px) {
+  .page {
+    height: auto;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+  }
+}
+
+.container {
+  display: flex;
+  height: 320px;
+  margin: 0 auto;
+  width: 640px;
+}
+
+@media (max-width: 767px) {
+  .container {
+    flex-direction: column;
+    height: 630px;
+    width: 320px;
+  }
+}
+
+.left {
+  background: white;
+  height: calc(100% - 40px);
+  top: 20px;
+  position: relative;
+  width: 50%;
+}
+
+@media (max-width: 767px) {
+  .left {
+    height: 100%;
+    left: 20px;
+    width: calc(100% - 40px);
+    max-height: 270px;
+  }
+}
+
+.login {
+  font-size: 50px;
+  font-weight: 900;
+  margin: 50px 40px 40px;
+}
+
+.eula {
+  color: #999;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 40px;
+}
+
+.right {
+  background: #474A59;
+  box-shadow: 0px 0px 40px 16px rgba(0, 0, 0, 0.22);
+  color: #F1F1F2;
+  position: relative;
+  width: 50%;
+}
+
+@media (max-width: 767px) {
+  .right {
+    flex-shrink: 0;
+    height: 100%;
+    width: 100%;
+    max-height: 350px;
+  }
+}
+
+svg {
+  position: absolute;
+  width: 320px;
+}
+
+path {
+  fill: none;
+  stroke: url(#linearGradient);
+  ;
+  stroke-width: 4;
+  stroke-dasharray: 240 1386;
+}
+
+.form {
+  margin: 40px;
+  position: absolute;
+}
+
+label {
+  color: #c2c2c5;
+  display: block;
+  font-size: 14px;
+  height: 16px;
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
+input {
+  background: rgba(255, 0, 0, 0.059);
+  border: 0;
+  color: #f2f2f2;
+  font-size: 20px;
+  height: 30px;
+  line-height: 30px;
+  border: 1px dotted rgba(255, 0, 0, 0.171);
+  width: 100%;
+}
+
+input::-moz-focus-inner {
+  border: 0;
+}
+
+#submit {
+  background-color: white;
+  color: black;
+  margin-top: 40px;
+  transition: all 0.2s ease-in-out;
+}
+
+#submit:hover {
+  color: #f2f2f2;
+  background-color: #2D2F36;
+}
+
+#submit:active {
+  color: #d0d0d2;
+}
+
+@keyframes lineshort {
+  from {
+
+    width: 18vw;
+  }
+
+  to {
+    width: 0;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+
+}
+
+
+
+
+.visible {
+  display: block !important;
+}
+
+.no_opacity {
+  display: none;
+}
+
+#signup_form {
+  position: relative;
+  top: -4vh;
+  transition: all 1s ease-in-out;
+}
+
+
+#submit {
+  background-color: white;
+  color: black;
+  margin-top: 25px;
+  transition: all 0.2s ease-in-out;
+}
+
+.change {
+  color: rgb(104, 134, 255);
+  text-decoration: underline rgb(101, 132, 255);
+}
+
+#signup {
+  top: 6vh;
+  position: relative;
+  left: 2vh;
+
+
+}
+
+#login {
+  position: relative;
+  left: 4vh;
+  top: 4vh;
+  color: black;
+
+
+}
+
+
+.signup {
+
+  font-size: 50px;
+  font-weight: 900;
+  margin: 50px 40px 40px;
+  display: none;
+}
+
+.addbox {
+  position: absolute;
+  height: 50px;
+  width: 230px;
+  margin-top: 30px;
+  border: none;
+  background-color: rgb(60, 60, 255);
+  border-radius: 9px;
+  bottom: 70px;
+  right: 2px;
+  text-align: center;
+  padding-top: 14px;
+  cursor: copy;
+
+}
+
+.change {
+  cursor: pointer;
+}
+
+input[type="file"] {
+  width: 235px;
+  height: 40px;
+  margin-top: 30px;
+  position: relative;
+  z-index: 1000;
+  opacity: 0;
+  cursor: copy;
+}
+
+.addbox:hover {
+  background-color: blue;
+}
+
+#imageContainer img {
+
+  left: 286px;
+  overflow: hidden;
+  z-index: 1;
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 100%;
+  top: 26vh;
+}
+
+input[type="submit"] {
+  background-color: rgb(7, 73, 255);
+  color: white;
+  transition: all 0.3s ease-in-out;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+input[type="submit"]:hover {
+  background-color: rgb(72, 72, 255);
+  border-radius: 20px;
+}
+
+.message {
+
+  font-size: 18px;
+  padding-top: 15px;
+  text-align: center;
+  border-radius: 7px;
+  position: fixed;
+  bottom: 11px;
+  right: 24px;
+  height: 8vh;
+  width: 20vw;
+  box-shadow: 0px 0px 11px -1px black;
+  background-color: white;
+  overflow: hidden;
+  transition: all 0.5s ease-in-out;
+
+}
+
+.line {
+
+  position: fixed;
+  bottom: 11px;
+  right: 24px;
+  height: 0.5vh;
+  width: 23vw;
+  background-color: rgb(11, 0, 112);
+  animation: lineshort 2s linear 1 forwards;
+
+}
+
+
+
+.page {
+  background-color: white;
+}
+
+.right {
+  background: #474A59;
+  box-shadow: 0px 0px 40px 16px rgba(0, 0, 0, 0.22);
+  color: #F1F1F2;
+  position: relative;
+  width: 315px;
+  height: 52vh;
+}

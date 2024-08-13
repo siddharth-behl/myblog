@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%-include("./Partials/head.ejs") %>
+  <title>Myblogstyle</title>
+  <link rel="stylesheet" href="<%=locals.url%>/auth.css">
+  
+</head>
+
+<body>
+  <header>
+    <%-include("./Partials/headers.ejs")  %>
+  </header>
+
+  <div class="page">
+    <div class="container">
+      <div class="left">
+        <div class="login">Login</div>
+        <div class="signup">Signup</div>
+        <div class="eula">By logging in you agree to the ridiculously long terms that you didn't bother to read</div>
+      </div>
+      <div class="right">
+        <svg viewBox="0 0 320 300">
+          <defs>
+            <linearGradient inkscape:collect="always" id="linearGradient" x1="13" y1="193.49992" x2="307" y2="193.49992" gradientUnits="userSpaceOnUse">
+              <stop style="stop-color:#ff00ff;" offset="0" id="stop876" />
+              <stop style="stop-color:#ff0000;" offset="1" id="stop878" />
+            </linearGradient>
+          </defs>
+          <path d="m 40,120.00016 239.99984,-3.2e-4 c 0,0 24.99263,0.79932 25.00016,35.00016 0.008,34.20084 -25.00016,35 -25.00016,35 h -239.99984 c 0,-0.0205 -25,4.01348 -25,38.5 0,34.48652 25,38.5 25,38.5 h 215 c 0,0 20,-0.99604 20,-25 0,-24.00396 -20,-25 -20,-25 h -190 c 0,0 -20,1.71033 -20,25 0,24.00396 20,25 20,25 h 168.57143" />
+        </svg>
+        <form method="post" action="/login" class="form" id="login_form">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="login_email">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="login_password">
+          <input type="submit" class="submit" value="Submit">
+          <p id="signup">New to Myblogstyle?<span class="change">signup</span></p>
+        </form>
+
+
+
+        <form method="post" action="/login" class="form no_opacity" id="signup_form" enctype="multipart/form-data">
+
+          <label for="name">Name *</label>
+          <input type="name" id="name_signup" name="fullname">
+
+          <label for="email">Email *</label>
+          <input type="email" id="email_signup" name="email">
+          <label for="password">Password *</label>
+          <input type="password" id="password_signup" name="password">
+          <div class="imagebox">
+            <div class="addbox">+ Add Image</div>
+            <input type="file" id="bg_img" name="profile_image" accept="image/*">
+            <div id="imageContainer"></div>
+          </div>
+          <input type="submit" class="submit" value="Submit">
+          <p id="login">Already a user ? <span class="change">login</span></p>
+        </form>
+      </div>
+    </div>
+  </div>
+  <% if (locals.no_data) { %>
+
+  <div class="linecont">
+    <div class="message">All fields Are required !
+
+      <div class="line"></div>
+    </div>
+
+  </div>
+  <% } %>
+  <% if (locals.duplicate) { %>
+
+  <div class="linecont">
+    <div class="message"> Email is Already registered please login !
+
+      <div class="line"></div>
+    </div>
+
+  </div>
+
+
+
+  <% } %>
+  <% if (locals.no_email) { %>
+
+  <div class="linecont">
+    <div class="message"> Email not registered! please Signup
+
+      <div class="line"></div>
+    </div>
+
+  </div>
+
+
+
+  <% } %>
+  <% if (locals.wrong_pass) { %>
+
+  <div class="linecont">
+    <div class="message"> Password is wrong! try again.
+
+      <div class="line"></div>
+    </div>
+
+  </div>
+
+
+
+  <% } %>
+  <% if (locals.no_data || locals.duplicate||locals.no_email||locals.wrong_pass) { %>
+
+  <script>
+    setTimeout(() => {
+      Array.from(document.getElementsByClassName('message')).forEach(elem => {
+        elem.style.opacity = 0
+      })
+    }, 2000)
+  </script>
+
+  <% } %>
+
+
+
+
+
+  <script>
+    signup.onclick = () => {
+
+      signup_form.classList.toggle('no_opacity')
+      login_form.classList.toggle('no_opacity')
+      document.getElementsByClassName('login')[0].classList.add('no_opacity')
+      document.getElementsByClassName('signup')[0].classList.add('visible')
+    }
+    login.onclick = () => {
+
+      signup_form.classList.toggle('no_opacity')
+      login_form.classList.toggle('no_opacity')
+      document.getElementsByClassName('login')[0].classList.remove('no_opacity')
+      document.getElementsByClassName('signup')[0].classList.remove('visible')
+    }
+
+
+
+    bg_img.addEventListener('change', function(event) {
+
+      const file = event.target.files[0]; // Get the selected file
+      if (file) {
+        const reader = new FileReader(); // Create a FileReader object
+
+        reader.onload = function(e) {
+          const imageContainer = document.getElementById('imageContainer');
+
+          imageContainer.innerHTML = ''; // Clear any existing content
+
+          const img = document.createElement('img'); // Create an img element
+          img.src = e.target.result; // Set the src attribute to the file content
+
+          imageContainer.appendChild(img); // Append the image to the container
+
+
+        }
+
+        reader.readAsDataURL(file); // Read the file as a data URL
+      }
+
+
+    });
+
+    document.getElementsByClassName('addbox').onclick = () => {
+      bg_img.click()
+    }
+  </script>
+
+  <%-include('./Partials/script.ejs')  %>
+
+</body>
+
+</html>
